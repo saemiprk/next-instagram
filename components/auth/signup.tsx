@@ -41,7 +41,7 @@ export default function SignUp({setView}){
           });
     
           if (data) {
-            setConfirmationRequired(true);
+            console.log(data);
           }
     
           if (error) {
@@ -55,7 +55,7 @@ export default function SignUp({setView}){
             <div className="pt-10 pb-6 px-10 w-full flex flex-col items-center justify-center max-w-lg border border-gray-400 bg-white gap-2">
                 <img src={'/images/inflearngram.png'} className="w-60 mb-6" />
                 {confirmationRequired?(
-                    <Input value={email} onChange={(e) => setOtp(e.target.value)} label="otp" type="number" className="w-full rounded-sm" placeholder="6자리 OTP를 입력해주세요." />
+                    <Input value={otp} onChange={(e) => setOtp(e.target.value)} label="otp" type="number" className="w-full rounded-sm" placeholder="6자리 OTP를 입력해주세요." />
                 ):(
                     <>
                         <Input value={email} onChange={(e) => setEmail(e.target.value)} label="email" type="email" className="w-full rounded-sm" />
@@ -83,7 +83,7 @@ export default function SignUp({setView}){
                 </Button>
             </div>
             <div className="py-4 w-full text-center max-w-lg border border-gray-400 bg-white">
-                이미 계정이 있으신가요? <Button className="text-light-blue-600 font-bold" onClick={() => {setView("SIGNUP")}}>로그인하기</Button>
+                이미 계정이 있으신가요? <Button className="text-light-blue-600 font-bold" onClick={() => {setView("SIGNIN")}}>로그인하기</Button>
             </div>
         </div>
     )

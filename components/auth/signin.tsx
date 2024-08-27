@@ -34,8 +34,8 @@ export default function SignIn({setView}){
                 <Input value={password} onChange={(e) => setPassword(e.target.value)} label="password" type="password" className="w-full rounded-sm" />
                 <Button onClick={() => signInMutation.mutate()} loading={signInMutation.isPending} disabled={signInMutation.isPending} color='light-blue' className="w-full text-md py-1">Login</Button>
             </div>
-            <div className="py-4 w-full text-center max-w-lg border border-gray-400 bg-white">
-                아직 계정이 없으신가요? <Button className="text-light-blue-600 font-bold" onClick={() => {setView("SIGNIN")}}>가입하기</Button>
+            <div className="flex items-center justify-center py-4 w-full text-center max-w-lg border border-gray-400 bg-white">
+                아직 계정이 없으신가요? <Button className="text-light-blue-600 font-bold bg-transparent shadow-none p-0" onClick={() => {setView("SIGNUP")}}>가입하기</Button>
             </div>
         </div>
     )
