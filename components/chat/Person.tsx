@@ -14,7 +14,7 @@ export default function Person({
     userId,
     onlineAt,
     isActive = false,
-    OnChatScreen = false,
+    onChatScreen = false,
     onClick = null,
 }){
     return (
@@ -22,9 +22,9 @@ export default function Person({
       className={`flex w-full min-w-60 ${
         onClick && "cursor-pointer"
       } gap-4 items-center p-4 ${
-        !OnChatScreen && isActive && "bg-light-blue-50"
-      } ${!OnChatScreen && !isActive && "bg-gray-50"} ${
-        OnChatScreen && "bg-gray-50"
+        !onChatScreen && isActive && "bg-light-blue-50"
+      } ${!onChatScreen && !isActive && "bg-gray-50"} ${
+        onChatScreen && "bg-gray-50"
       }`}
       onClick={onClick}
     > 

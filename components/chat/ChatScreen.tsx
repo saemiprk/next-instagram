@@ -1,21 +1,30 @@
+"use client";
+
 import { Button } from "@material-tailwind/react";
 import Person from "./Person";
 import Message from "./Message";
 import { useRecoilValue } from "recoil";
-import { selectedIndexState } from "utils/recoil/atoms";
+import { selectedUserIdState, selectedUserIndexState } from "utils/recoil/atoms";
+import { useQuery } from "@tanstack/react-query";
+import { getUserById } from "actions/chatActions";
 
 export default function ChatScreen(){
-    const selectedIndex = useRecoilValue(selectedIndexState);
+    const selectedUserId = useRecoilValue(selectedUserIdState);
+    const selectedUserIndex = useRecoilValue(selectedUserIndexState);
+    const selectedUserQuery = useQuery({
+        queryKey: ["user", selectedUserId],
+        queryFn: () => getUserById(selectedUserId),
+    });
 
-    return selectedIndex !== null ? (
+    return selectedUserQuery.data !== null ? (
         <div className="w-full h-screen flex flex-col">
             <Person
-            index={selectedIndex}
-            isActive={false}
-            name={'Kim'}
-            OnChatScreen={false}
-            onlineAt={new Date().toISOString()}
-            userId={"dkjska"}
+                index={selectedUserIndex}
+                isActive={false}
+                name={selectedUserQuery.data?.email?.split("@")?.[0]}
+                onChatScreen={true}
+                onlineAt={new Date().toISOString()}
+                userId={selectedUserQuery.data?.id}
             />
             {/* Chat Area */}
             <div className="w-full flex-1 flex flex-col p-4 gap-2">
