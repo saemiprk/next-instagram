@@ -82,8 +82,8 @@ export default function SignUp({setView}){
                     {confirmationRequired ? "인증하기" : "가입하기"}
                 </Button>
             </div>
-            <div className="py-4 w-full text-center max-w-lg border border-gray-400 bg-white">
-                이미 계정이 있으신가요? <Button className="text-light-blue-600 font-bold" onClick={() => {setView("SIGNIN")}}>로그인하기</Button>
+            <div className="flex items-center justify-center py-4 w-full text-center max-w-lg border border-gray-400 bg-white">
+                이미 계정이 있으신가요? <Button className="text-light-blue-600 font-bold bg-transparent shadow-none p-0" onClick={() => {setView("SIGNIN")}}>로그인하기</Button>
             </div>
         </div>
     )
