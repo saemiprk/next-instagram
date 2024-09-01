@@ -31,7 +31,7 @@ export default function Person({
             <img src={getRandomImage(index)} alt={name} className="w-10 h-10 rounded-full" />
             <div>
                 <p className="text-black font-bold text-lg">{name}</p>
-                <p className="text-gray-500 text-sm">{timeAgo.format(Date.parse(onlineAt))}</p>
+                <p className="text-gray-500 text-sm">{onlineAt && timeAgo.format(Date.parse(onlineAt))}</p>
             </div>
         </div>
     )
