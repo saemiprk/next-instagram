@@ -1,6 +1,12 @@
 import ChatPeopleList from "components/chat/ChatPeopleList";
 import ChatScreen from "components/chat/ChatScreen";
+import { Metadata } from "next";
 import { createServerSupabaseClient } from "utils/supabase/server";
+
+export const metadata: Metadata = {
+    title: "Instagram Chat",
+    description: "Instagram Chat",
+};
 
 export default async function ChatPage(){
     const supabase = await createServerSupabaseClient();

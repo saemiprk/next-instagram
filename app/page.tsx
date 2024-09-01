@@ -2,8 +2,8 @@ import LogoutButton from "components/auth/logout-button";
 import { createServerSupabaseClient } from "utils/supabase/server";
 
 export const metadata = {
-  title: "instagram",
-  description: 'instagram clone project'
+  title: "Instagram",
+  description: 'Instagram clone project'
 }
 
 export default async function Home() {
